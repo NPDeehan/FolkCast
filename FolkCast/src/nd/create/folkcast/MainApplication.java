@@ -39,6 +39,24 @@ public class MainApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
+    /**
+     * Returns the data as an observable list of Rss Feeds. 
+     * @return
+     */
+    public ObservableList<Feed> getPodcastData() {
+        return rssFeeds;
+    }
+    
+	/**
+	 * This will add a feed to the global list.
+	 * @param question
+	 */
+	public void addPodcastToList(Feed rssFeed)
+	{
+		rssFeeds.add(rssFeed);
+	}
+    
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -122,6 +140,7 @@ public class MainApplication extends Application {
 	            
 	            NewFeedDialogController controller = loader.getController();
 	            controller.setDialogStage(dialogStage);
+	            controller.setMainApp(this);
 	            //controller.initialize();
 	            dialogStage.show();
 	            

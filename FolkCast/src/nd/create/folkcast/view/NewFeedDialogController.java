@@ -1,6 +1,7 @@
 package nd.create.folkcast.view;
 
 
+import nd.create.folkcast.MainApplication;
 import nd.create.folkcast.model.Feed;
 import nd.create.folkcast.utils.RSSFeedParser;
 import javafx.fxml.FXML;
@@ -16,6 +17,10 @@ public class NewFeedDialogController {
 	public NewFeedDialogController() {
 		
 	}
+	
+	
+	private MainApplication mainApp;
+	private Feed newFeed;
 	
 	private Stage dialogStage;
 	@FXML
@@ -46,6 +51,9 @@ public class NewFeedDialogController {
 		
 	}
 	
+	public void setMainApp(MainApplication thisMainApp ){
+		mainApp = thisMainApp;
+	}
 
 	 
 	  /**
@@ -62,7 +70,7 @@ public class NewFeedDialogController {
 	  {
 
 		  	dialogStage.close();
-		  	
+		  	mainApp.addPodcastToList(newFeed);
 		  	
 
 	  }
@@ -84,14 +92,14 @@ public class NewFeedDialogController {
 	private void parseNewFeed() {
 		
 	  	RSSFeedParser parser = new RSSFeedParser(sourceURLField.getText());
-	  	Feed feed = parser.readFeed();
+	  	newFeed = parser.readFeed();
 	  	
-	  	descriptionField.setText(feed.getDescription());
-	  	titleField.setText(feed.getTitle());
-	  	linkField.setText(feed.getLink());
-	  	laungageField.setText(feed.getLanguage());
-	  	copyrightField.setText(feed.getCopyright());
-	  	pubDateField.setText(feed.getPubDate());
+	  	descriptionField.setText(newFeed.getDescription());
+	  	titleField.setText(newFeed.getTitle());
+	  	linkField.setText(newFeed.getLink());
+	  	laungageField.setText(newFeed.getLanguage());
+	  	copyrightField.setText(newFeed.getCopyright());
+	  	pubDateField.setText(newFeed.getPubDate());
 	  	//authorField.setText(feed.get);
 		
 	}

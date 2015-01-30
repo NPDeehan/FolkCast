@@ -3,6 +3,9 @@ package nd.create.folkcast.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /*
  * Stores an RSS feed
  */
@@ -34,6 +37,12 @@ public class Feed {
   public String getTitle() {
     return title;
   }
+  
+ public StringProperty getTitleAsStringProperty(){
+		StringProperty thisString = new SimpleStringProperty(title);
+		
+		return thisString;
+	}
 
   public String getLink() {
     return link;
