@@ -17,17 +17,21 @@ public class Feed {
   final String language;
   final String copyright;
   final String pubDate;
+  final String author;
+  final String image;
 
   final List<FeedMessage> entries = new ArrayList<FeedMessage>();
 
   public Feed(String title, String link, String description, String language,
-      String copyright, String pubDate) {
+      String copyright, String pubDate, String author, String image) {
     this.title = title;
     this.link = link;
     this.description = description;
     this.language = language;
     this.copyright = copyright;
     this.pubDate = pubDate;
+    this.author = author;
+    this.image = image;
   }
 
   public List<FeedMessage> getMessages() {
@@ -62,6 +66,10 @@ public class Feed {
 
   public String getPubDate() {
     return pubDate;
+  }
+  
+  public String getAuthor(){
+	  return author;
   }
 
   @Override

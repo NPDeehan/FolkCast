@@ -7,6 +7,8 @@ import nd.create.folkcast.utils.RSSFeedParser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -47,12 +49,17 @@ public class NewFeedDialogController {
 	private TextField laungageField;
 	
 	@FXML
+	private ImageView podcastImage;
+	
+	@FXML
 	private void initialize(){
 		
 	}
 	
+	
 	public void setMainApp(MainApplication thisMainApp ){
 		mainApp = thisMainApp;
+		podcastImage.setImage(mainApp.getDefualtPodcastImage());
 	}
 
 	 
@@ -100,7 +107,7 @@ public class NewFeedDialogController {
 	  	laungageField.setText(newFeed.getLanguage());
 	  	copyrightField.setText(newFeed.getCopyright());
 	  	pubDateField.setText(newFeed.getPubDate());
-	  	//authorField.setText(feed.get);
+	  	authorField.setText(newFeed.getAuthor());
 		
 	}
 

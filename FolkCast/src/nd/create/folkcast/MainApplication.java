@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -151,6 +152,14 @@ public class MainApplication extends Application {
             	return false;
             }
             
+	    }
+	    /**
+	     * This returns the image for an correct answer - it is attached to the selected button
+	     * @return
+	     */
+	    public Image getDefualtPodcastImage()
+	    {
+	    	return new Image("file:resources/images/fallout.png");
 	    }
 	    
 	    
