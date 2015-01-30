@@ -1,5 +1,6 @@
 package nd.create.folkcast.view;
 
+import javafx.fxml.FXML;
 import nd.create.folkcast.MainApplication;
 
 
@@ -18,6 +19,16 @@ public class RootLayoutController {
      */
     public void setMainApp(MainApplication mainApp) {
         this.mainApp = mainApp;
+    }
+    
+    @FXML
+    private void handelClose(){
+    	System.exit(0);
+    }
+    
+    @FXML
+    public void hangelNewFeed(){
+    	mainApp.showNewFeedDialog();
     }
 
 }

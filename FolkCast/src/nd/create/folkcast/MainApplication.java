@@ -3,6 +3,7 @@ package nd.create.folkcast;
 import java.io.IOException;
 
 import nd.create.folkcast.model.Feed;
+import nd.create.folkcast.view.NewFeedDialogController;
 import nd.create.folkcast.view.PodcastListViewController;
 import nd.create.folkcast.view.RootLayoutController;
 import javafx.application.Application;
@@ -13,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainApplication extends Application { 
@@ -97,11 +99,42 @@ public class MainApplication extends Application {
 	        }
 		
 	}
-	
-    @FXML
-    private void handelClose(){
-    	System.exit(0);
-    }
 
 
-}
+		   /**
+	     * A quiz answer can contain a Source for the answer given, it's optional but if a user
+	     * chooses to do it, this is the dialog that will help them do that.
+	     * @param quizAns
+	     * @return
+	     */
+	    public boolean showNewFeedDialog(){
+	    	try{
+	    		
+		    	FXMLLoader loader = new FXMLLoader();
+	            loader.setLocation(MainApplication.class.getResource("view/NewFeedDialog.fxml"));
+	            AnchorPane page = (AnchorPane) loader.load();
+	            Stage dialogStage = new Stage();
+	            dialogStage.setTitle("Add New Feed");
+	            dialogStage.initModality(Modality.WINDOW_MODAL);
+	            dialogStage.initOwner(primaryStage);
+	            Scene scene = new Scene(page);
+	            dialogStage.setScene(scene);
+	            
+	            NewFeedDialogController controller = loader.getController();
+	            controller.setDialogStage(dialogStage);
+	            //controller.initialize();
+	            dialogStage.show();
+	            
+	            return true;
+	    	}
+            catch(Exception e){
+            	e.printStackTrace();
+            	return false;
+            }
+            
+	    }
+	    
+	    
+	    
+		
+	}

@@ -9,7 +9,7 @@ public class ReadTest {
 	
 	  public static void main(String[] args) 
 	  {
-	    RSSFeedParser parser = new RSSFeedParser("http://www.vogella.com/article.rss");
+	    RSSFeedParser parser = new RSSFeedParser("http://downloads.bbc.co.uk/podcasts/radio4/fricomedy/rss.xml");
 	    Feed feed = parser.readFeed();
 	    System.out.println(feed);
 	    
